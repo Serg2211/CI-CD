@@ -1,2 +1,2 @@
-*.tfstate
 *backend.key*
+personal.auto.tfvars
