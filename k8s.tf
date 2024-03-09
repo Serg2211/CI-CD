@@ -1,6 +1,6 @@
 #считываем данные об образе ОС
 data "yandex_compute_image" "ubuntu-2204-lts" {
-  family = "ubuntu-2204-lts"
+  image_id = "fd8hnnsnfn3v88bk0k1o"
 }
 
 #создаем master node
@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "master-node" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     user-data = "${data.template_file.cloudinit.rendered}"
   }
 
