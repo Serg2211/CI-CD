@@ -100,13 +100,3 @@ resource "yandex_storage_object" "object-1" {
     acl    = "private"
     depends_on = [local_file.backendConf]
 }
-
-resource "yandex_storage_object" "object-2" {
-    access_key = yandex_iam_service_account_static_access_key.bucket-static_access_key.access_key
-    secret_key = yandex_iam_service_account_static_access_key.bucket-static_access_key.secret_key
-    bucket = yandex_storage_bucket.diplom-bucket.bucket
-    key = "terraform.tfstate"
-    source = "./terraform.tfstate"
-    acl    = "private"
-    depends_on = [local_file.backendConf]
-}
