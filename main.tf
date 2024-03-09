@@ -73,3 +73,4 @@ resource "yandex_storage_bucket" "diplom-bucket" {
     }
   }
 }
+
