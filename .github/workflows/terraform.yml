@@ -39,8 +39,14 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+        with:
+          access-key-id: ${{ secrets.YC_ACCESS_KEY }}
+          secret-access-key: ${{ secrets.YC_SECRET_KEY }}
+
 
       - name: Terraform Plan
         id: plan
         run: terraform plan
-
+        with:
+          access-key-id: ${{ secrets.YC_ACCESS_KEY }}
+          secret-access-key: ${{ secrets.YC_SECRET_KEY }}
