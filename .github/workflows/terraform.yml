@@ -15,6 +15,7 @@ jobs:
       YC_SECRET_KEY: ${{ secrets.YC_SECRET_KEY }}
       YC_TOKEN: ${{ secrets.YC_TOKEN }}
       ID_RSA: ${{ secrets.ID_RSA }}
+      JENK_RSA: ${{ secrets.JENK_RSA }}
       working-directory: .
     defaults:
       run:
@@ -26,6 +27,9 @@ jobs:
 
       - name: Save SSH Public key to file for terraform
         run: echo $ID_RSA > id_rsa.pub
+
+      - name: Save JENK SSH Public key to file for terraform
+        run: echo $JENK_RSA > jenk.pub
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1

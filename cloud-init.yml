@@ -11,7 +11,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
-      - ${file("~/.ssh/jenk.pub")}
+      - ${file("jenk.pub")}
 package_update: false
 package_upgrade: false
 packages:
