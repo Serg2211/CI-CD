@@ -73,30 +73,3 @@ resource "yandex_storage_bucket" "diplom-bucket" {
     }
   }
 }
-
-
-  // Create "local_file" for "backendConf"
-resource "local_file" "backendConf" {
-  content  = <<EOT
-endpoint = "storage.yandexcloud.net"
-bucket = "${yandex_storage_bucket.diplom-bucket.bucket}"
-region = "ru-central1"
-key = "terraform/terraform.tfstate"
-access_key = "${yandex_iam_service_account_static_access_key.bucket-static_access_key.access_key}"
-secret_key = "${yandex_iam_service_account_static_access_key.bucket-static_access_key.secret_key}"
-skip_region_validation = true
-skip_credentials_validation = true
-EOT
-  filename = "./backend.key"
-}
-
-// Add "backendConf" to bucket
-resource "yandex_storage_object" "object-1" {
-    access_key = yandex_iam_service_account_static_access_key.bucket-static_access_key.access_key
-    secret_key = yandex_iam_service_account_static_access_key.bucket-static_access_key.secret_key
-    bucket = yandex_storage_bucket.diplom-bucket.bucket
-    key = "terraform/terraform.tfstate"
-    source = "./backend.key"
-    acl    = "private"
-    depends_on = [local_file.backendConf]
-}
