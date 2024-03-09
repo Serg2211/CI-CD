@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "master-node" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("id_rsa.pub")}"
     user-data = "${data.template_file.cloudinit.rendered}"
   }
 
