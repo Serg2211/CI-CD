@@ -5,7 +5,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
-      - ${file("~/.ssh/id_rsa.pub")}
+      - ${file("id_rsa.pub")}
   - name: jenkins
     groups: sudo
     shell: /bin/bash
