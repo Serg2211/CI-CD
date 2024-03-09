@@ -1,0 +1,4 @@
+*.tfstate
+*.tfstate.*
+*backend.key*
+*variables.tf*
