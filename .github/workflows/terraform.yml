@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      YC_ACCESS_KEY: ${{ secrets.YC_ACCESS_KEY }}
-      YC_SECRET_KEY: ${{ secrets.YC_SECRET_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       YC_TOKEN: ${{ secrets.YC_TOKEN }}
       ID_RSA: ${{ secrets.ID_RSA }}
       JENK_RSA: ${{ secrets.JENK_RSA }}
@@ -39,14 +39,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-        with:
-          access-key-id: ${{ secrets.YC_ACCESS_KEY }}
-          secret-access-key: ${{ secrets.YC_SECRET_KEY }}
-
 
       - name: Terraform Plan
         id: plan
         run: terraform plan
-        with:
-          access-key-id: ${{ secrets.YC_ACCESS_KEY }}
-          secret-access-key: ${{ secrets.YC_SECRET_KEY }}
