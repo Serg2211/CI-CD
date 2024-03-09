@@ -49,8 +49,8 @@ resource "yandex_compute_instance" "worker-nodes" {
   allow_stopping_for_update = true
 
   resources {
-    cores  = 4
-    memory = 4
+    cores  = 2
+    memory = 2
     core_fraction = 100
   }
 
