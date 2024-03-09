@@ -1,4 +1,4 @@
-name: Terraform CI/CD
+name: Terraform
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Save SSH Public key to file for terraform
+      - name: Save Ubuntu Public key to file for terraform
         run: echo $ID_RSA > id_rsa.pub
 
-      - name: Save JENK SSH Public key to file for terraform
+      - name: Save Jenkins SSH Public key to file for terraform
         run: echo $JENK_RSA > jenk.pub
 
       - name: Setup Terraform
@@ -42,5 +42,5 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color
+        run: terraform plan
 
